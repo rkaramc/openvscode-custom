@@ -1,0 +1,16 @@
+version: "3"
+
+
+services:
+  codeserver:
+    container_name: codeserver
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: rkaramc/openvscode-custom:latest
+    init: true
+    ports: 
+      - "3000:3000"
+    volumes:
+      - "/home/rkaramc:/home/rkaramc:cached"
+    env_file: .env
